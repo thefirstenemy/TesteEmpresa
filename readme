@@ -1,9 +1,9 @@
 Caro usuário,
 
-Esse sistema crud é feito com elementos do frameworl Ajax, Php e Mysql,
+Esse sistema crud é feito com elementos do framework Ajax, Php e Mysql,
 para uma melhor instalação:
 
-- Sugiro que o instale em um ambientes windons;
+- Sugiro que o instale em um ambientes Windows;
 - Sistema funciona com um framework feito pelo autor do código, 
 - Para Instalar, incluir toda a pasta "TesteEmpresa" na pasta htdocs do Xampp
 ou no www html do linux, 
