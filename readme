@@ -1,0 +1,13 @@
+Caro usuário,
+
+Esse sistema crud é feito com elentos de ajax, php e mysql,
+para uma melhor instalação:
+
+- Sugiro que o instale em um ambientes windons;
+- Sistema funciona com um framework feito pelo autor do código, 
+- Para Instalar, incluir toda a pasta "TesteEmpresa" na pasta htdocs do Xampp
+ou no www html do linux, 
+- Faça a exportação do arquivo "teste_empresa.sql" para seu banco de dados (Mysql)
+- Coloque as informações de usuário e senha no arquivo "config.sql" que esta na pasta 
+"connection", 
+- Feito isso ele devera estar funcionando em seu ambiente de instalação.    
