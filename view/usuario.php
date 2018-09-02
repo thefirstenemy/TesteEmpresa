@@ -25,44 +25,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
-        $("#acomp1").click(function(){
-            $('#input_one').hide();            
-        });
-        $("#acomp2").click(function(){
-            $('#input_one').hide();
-            $('#input_two').hide(); 
-        });
-        $("#acomp3").click(function(){
-            $('#input_one').hide();
-            $('#input_two').hide(); 
-            $('#input_tree').hide();
-        });
+        $( "#dialog" ).dialog();
+        $("#acomp").click(function(){
+            $('#hide').toggle();            
+        });        
     });
     </script>
   </head>
-
     <body class="text-center">
-        <form class="form-signin">
+        <form class="form-signin" action="#" method="">
             <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Incluir Usuário</h1>      
             <input type="" id="" class="form-control" placeholder="Usuário" autofocus>
             <div class="checkbox mb-3"></div>
-            <div class="checkbox mb-3">
-                Acompanhantes
-            </div>
-            <button id="acomp1" class="btn btn-primary button_change">1</button>
-            <button id="acomp2" class="btn btn-primary button_change">2</button>
-            <button id="acomp3" class="btn btn-primary button_change">3</button>
             <div class="checkbox mb-3"></div>
-            
-            <input id="input_one" class="form-control" placeholder="Acompanhante 1" >
-            
-            <input id="input_two" class="form-control" placeholder="Acompanhante 2" >
-            
-            <input  id="input_tree" class="form-control" placeholder="Acompanhante 3" >            
-            <div class="checkbox mb-3"></div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
+                <button id="acomp" class="btn btn-primary button_change">Acompanhantes</button>            
+            <div class="checkbox mb-3"></div>            
+            <p id="hide">
+                <input id="input_one" class="form-control" placeholder="Acompanhante 1 (Não Obrigatório)" >                
+                <input id="input_two" class="form-control" placeholder="Acompanhante 2 (Não Obrigatório)" >                
+                <input  id="input_tree" class="form-control" placeholder="Acompanhante 3 (Não Obrigatório)" >            </div>            
+            <p class="checkbox mb-3"></div>
+            <button id="send" class="btn btn-lg btn-primary btn-block">Enviar</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            <div id="dialog" title="Basic dialog">
+                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+            </div>
         </form>
+        
     </body>
+    <script>
+        $('#send').click(function(){
+            var user = $('#user').val();
+            var acomp1 = $('#acomp1').val();
+            var acomp2 = $('#acomp2').val();
+            var acomp3 = $('#acomp3').val();
+            if(user == " " || user == null){
+                $('#dialog').toggle(); 
+            }
+        });
+    </script>
 </html>

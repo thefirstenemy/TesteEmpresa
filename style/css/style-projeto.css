@@ -1,4 +1,10 @@
 .button_change {
-    width: 32%;
+    width: 100%;
+}
+#hide{
+    display: none;
+}
+#dialog{
+    display: none;
 }
 
