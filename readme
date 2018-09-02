@@ -6,7 +6,7 @@ para uma melhor instalação:
 - Sugiro que o instale em um ambientes Windows;
 - Sistema funciona com um framework feito pelo autor do código, 
 - Para Instalar, incluir toda a pasta "TesteEmpresa" na pasta htdocs do Xampp
-ou no www html do linux, 
+ou na pasta  "html" do Linux, 
 - Faça a exportação do arquivo "teste_empresa.sql" para seu banco de dados (Mysql)
 - Coloque as informações de usuário e senha no arquivo "config.sql" que esta na pasta 
 "connection", 
