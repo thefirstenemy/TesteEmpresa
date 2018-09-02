@@ -1,4 +1,7 @@
-
+<!--
+    Código fr frontend feito com framework Bootstrap 4, utilizando ainda ajax para 
+    envio de informações para o backend.
+-->
 <!doctype html>
 <html lang="en">
   <head>
