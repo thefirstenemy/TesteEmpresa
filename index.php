@@ -12,7 +12,7 @@ require_once 'controller/user_controller.php';
 @$op = $_REQUEST ['method'] ? $_REQUEST ['method'] : $_REQUEST ['op'];
 
 //Instância da classe User presente no controller
-$user = new User();
+$user = new UserController();
 
 /*
 	O operador lógico "switch case" filtra as informações de acordo com 
@@ -20,7 +20,28 @@ $user = new User();
 	com mais casos de uso caso o código for crescendo.
 */
 switch ($op) {
-	case 'user' :		
+	case 'UserInsert' :		
+		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
+		if ($returnInfo) {
+			echo json_encode ( $returnMsg );
+			exit ();
+		}
+		break;
+	case 'UserUpdate' :		
+		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
+		if ($returnInfo) {
+			echo json_encode ( $returnMsg );
+			exit ();
+		}
+		break;
+	case 'UserDelete' :		
+		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
+		if ($returnInfo) {
+			echo json_encode ( $returnMsg );
+			exit ();
+		}
+		break;
+	case 'UserList' :		
 		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
 		if ($returnInfo) {
 			echo json_encode ( $returnMsg );

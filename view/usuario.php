@@ -24,8 +24,7 @@
     <!--Jquery script para efeito de Toggle-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $( "#dialog" ).dialog();
+    $(document).ready(function(){        
         $("#acomp").click(function(){
             $('#hide').toggle();            
         });        
@@ -34,7 +33,7 @@
   </head>
     <body class="text-center">
         <form class="form-signin" action="#" method="">
-            <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <img class="mb-4" src="" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Incluir Usuário</h1>      
             <input type="" id="" class="form-control" placeholder="Usuário" autofocus>
             <div class="checkbox mb-3"></div>
@@ -56,12 +55,27 @@
     </body>
     <script>
         $('#send').click(function(){
-            var user = $('#user').val();
-            var acomp1 = $('#acomp1').val();
-            var acomp2 = $('#acomp2').val();
-            var acomp3 = $('#acomp3').val();
+            var User = $('#user').val();
+            var Acomp1 = $('#acomp1').val();
+            var Acomp2 = $('#acomp2').val();
+            var Acomp3 = $('#acomp3').val();
             if(user == " " || user == null){
                 $('#dialog').toggle(); 
+            }else{
+                $.ajax({
+				method: "POST",
+				url: "../index.php",
+				data: {
+						method: 'UserInsert',
+						parameter : {
+                            user : User , 
+                            acomp1: Acomp1, 
+                            acomp2: Acomp2, 
+                            acomp3: Acomp3}
+					},
+				}).done(function( msg ) {
+					console.log(msg);
+	       		});
             }
         });
     </script>
