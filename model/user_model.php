@@ -14,84 +14,75 @@ class UserModel{
 		todos private para garantir a segurança, sendo apenas 
 		vistos pelos métodos da classe.
 	*/
-	private $nameUser;
-	private $queryNome; 
-	private $result;
-	private $connection; 
-	private $arrayGet;
+	private $data;
+	
 	/*
 		Construtor de acesso a classe
 	*/
-	function __construct($nameUser, $queryUser, $queryNome, $userId , $result, $connection, $arrayGet, $mysqliQuery) {
-       $this->nameUser = $nameUser;
-       $this->queryUser = $queryUser;
-       $this->result = $result;
-       $this->userId = $userId;    
-       $this->connection = $connection;
-       $this->arrayGet = $arrayGet;   
-       $this->mysqliQuery = $mysqliQuery;
+	function __construct($data) {
+       $this->data = $data;
    }
 
 	//Método de busca e lista informações de usuários na tabela "users"
 	public function getUser(){
-		$this->connection = new Connection();
+		$connection = new Connection();
 		
-		$this->queryUser = 'SELECT id, name';
-		$this->queryUser .= ' FROM users';			
+		$queryUser = 'SELECT id, name';
+		$queryUser .= ' FROM users';			
 		
-		$this->mysqliQuery = mysqli_query($this->connection->conn(), $this->queryUser);
+		$mysqliQuery = mysqli_query($connection->conn(), $queryUser);
 				
-		$this->arrayGet = array();
-		while($row = mysqli_fetch_array($this->mysqliQuery)){
-			array_push($this->arrayGet, array(
+		$arrayGet = array();
+		while($row = mysqli_fetch_array($mysqliQuery)){
+			array_push($arrayGet, array(
 				"id" => $row['id'],
 				"nome" => $row['name'],
 			));
 		}		
-		return $this->arrayGet;
+		return $arrayGet;
 	}
 
 	//Método que insere no banco de dados um novo regustro de usuário na tabela "users"
 	public function insertUser($data){		
-		$this->connection = new Connection();	
+		$connection = new Connection();	
 
-		$this->nameUser = $data['name'];	
+		$nameUser = $data['name'];	
 
-		$this->queryUser = 'INSERT INTO users'; 
-		$this->queryUser .= ' ("id", "name")';
-		$this->queryUser .= ' VALUES'; 
-		$this->queryUser .= ' (NULL, '. $this->nameUser .'  )';	 
+		$queryUser = 'INSERT INTO users'; 
+		$queryUser .= ' ("id", "name")';
+		$queryUser .= ' VALUES'; 
+		$queryUser .= ' (NULL, '. $nameUser .'  )';	 
 		
-		$this->mysqliQuery = mysqli_query($conn, $this->queryUser);
-		return $this->mysqliQuery;
+		$mysqliQuery = mysqli_query($conn, $queryUser);
+		return $mysqliQuery;
 	}
 
 	//Método que atualiza no banco de dados um determinado usuário na tabela "users"
 	public function updateUser($data){		
-		$this->connection = new Connection();
+		$connection = new Connection();
 
-		$this->userId = $data['id']; 
-		$this->nameUser = $data['name'];
+		$userId = $data['id']; 
+		$nameUser = $data['name'];
 
-		$this->queryUser =  'UPDATE users'; 
-		$this->queryUser .= ' SET name = ' . $data['id'] .'';
-		$this->queryUser .= ' WHERE id = ' . $this->userId . ''; 
+		$queryUser =  'UPDATE users'; 
+		$queryUser .= ' SET name = ' . $data['id'] .'';
+		$queryUser .= ' WHERE id = ' . $userId . ''; 
 		
-		$this->mysqliQuery = mysqli_query($conn, $this->queryUser);		
-		return $this->mysqliQuery;
+		$mysqliQuery = mysqli_query($conn, $queryUser);		
+		return $mysqliQuery;
 	}
 
 	//Método que deleta o registro de um determinado usuário na tabela "users"
-	public function deleteUser($ramalGestor){		
-		$this->connection = new Connection();
+	public function deleteUser($data){		
+		$connection = new Connection();
 
-		$this->userId = $data['id'];
+		$userId = $data['id'];
 
-		$this->queryUser =  'DELETE FROM users';
-		$this->queryUser .= ' WHERE id = ' . $this->userId . ''; 
+		$queryUser =  'DELETE FROM users';
+		$queryUser .= ' WHERE id = ' . $userId . ''; 
 		
-		$this->mysqliQuery = mysqli_query($this->connection, $this->queryUser);
-		return $this->mysqliQuery;
+		$mysqliQuery = mysqli_query($connection, $queryUser);
+		return $mysqliQuery;
 	}
 }
 

@@ -16,7 +16,7 @@ class UserController{
 	*/
     public function UserList()
     {       	
-    	$userModel = new UserModel("", "", "", "", "", "", "", "");
+    	$userModel = new UserModel($data = "");
     	$result = $userModel->getUser();
     	return $result;
     }
@@ -50,8 +50,7 @@ class UserController{
 
     public function UserDelete($data)
     {
-    	var_dump($data);
-    	
+    	var_dump($data);    	
     }    
 }
 ?>

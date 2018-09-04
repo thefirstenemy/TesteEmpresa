@@ -4,7 +4,6 @@
 	facilitando assim o uso de mais views e possibilitando o uso de 
 	MVC e orientação a objetos
 */
-
 //Requisição de acesso a classe user_controller 
 require_once 'controller/user_controller.php';
 
