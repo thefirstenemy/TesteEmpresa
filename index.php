@@ -20,6 +20,7 @@ $user = new UserController();
 	com mais casos de uso caso o código for crescendo.
 */
 switch ($op) {
+	//Caso Essa parte receba "UserInsert" ira enviar parâmetros para controller Insert
 	case 'UserInsert' :		
 		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
 		if ($returnInfo) {
@@ -27,6 +28,7 @@ switch ($op) {
 			exit ();
 		}
 		break;
+	//Caso Essa parte receba "UserInsert" ira enviar parâmetros para controller Update	
 	case 'UserUpdate' :		
 		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
 		if ($returnInfo) {
@@ -34,6 +36,7 @@ switch ($op) {
 			exit ();
 		}
 		break;
+	//Caso Essa parte receba "UserInsert" ira enviar parâmetros para controller Delete	
 	case 'UserDelete' :		
 		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
 		if ($returnInfo) {
@@ -41,6 +44,7 @@ switch ($op) {
 			exit ();
 		}
 		break;
+	//Essa parte apenas listas os usuários/acompanhantes presentes no banco de dados	
 	case 'UserList' :		
 		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
 		if ($returnInfo) {

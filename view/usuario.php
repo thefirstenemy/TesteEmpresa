@@ -46,12 +46,14 @@
                 <input  id="input_tree" class="form-control" placeholder="Acompanhante 3 (Não Obrigatório)" >            </div>            
             <p class="checkbox mb-3"></div>
             <button id="send" class="btn btn-lg btn-primary btn-block">Enviar</button>
+            <div class="checkbox mb-3"></div>
+            <div class="checkbox mb-3"></div>
+            <button id="listUser" class="btn btn-lg btn-primary btn-block">Lista de Usuários</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
             <div id="dialog" title="Basic dialog">
                 <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
             </div>
-        </form>
-        
+        </form>        
     </body>
     <script>
         $('#send').click(function(){
@@ -59,8 +61,12 @@
             var Acomp1 = $('#acomp1').val();
             var Acomp2 = $('#acomp2').val();
             var Acomp3 = $('#acomp3').val();
-            if(user == " " || user == null){
-                $('#dialog').toggle(); 
+            if(User == " " || User == null){                
+                setTimeout(function(){
+                   text.hide(
+                        $('#dialog').toggle(); 
+                    );
+                }, 1000);
             }else{
                 $.ajax({
 				method: "POST",
@@ -77,6 +83,9 @@
 					console.log(msg);
 	       		});
             }
+        });
+        $('#send').click(function(){
+            location.href = "www.google.com"
         });
     </script>
 </html>
