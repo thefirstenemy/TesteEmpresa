@@ -9,12 +9,14 @@ require_once "model/user_model.php";
 	acompanhantes. 
 */
 
-class UserController{
+class UserController{	
 	/*
-		Método envia lista de usuários e acompanhantes para a view
+		Método requisita a lista de usuários e acompanhantes do banco de dados
+		com parâmentros vazios para o construtor do model apenas para popular na tela
 	*/
-    public function UserList(UserModel $userModel)
-    {   
+    public function UserList()
+    {       	
+    	$userModel = new UserModel("", "", "", "", "", "", "", "");
     	$result = $userModel->getUser();
     	return $result;
     }

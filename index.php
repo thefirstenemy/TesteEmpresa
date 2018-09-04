@@ -13,7 +13,6 @@ require_once 'controller/user_controller.php';
 
 //Instância da classe User presente no controller
 $user = new UserController();
-
 /*
 	O operador lógico "switch case" filtra as informações de acordo com 
 	o controller relacionando-o a sua respectiva view, podendo ser incrementado
@@ -46,14 +45,14 @@ switch ($op) {
 		break;
 	//Essa parte apenas listas os usuários/acompanhantes presentes no banco de dados	
 	case 'UserList' :		
-		$returnInfo = $user->sendMessage($_REQUEST ['parameter']);
+		$returnInfo = $user->UserList();
 		if ($returnInfo) {
-			echo json_encode ( $returnMsg );
+			echo json_encode ( $returnInfo );
 			exit ();
 		}
 		break;
 	default :
-		header ( "Location:view/usuario.php" );
+		header ( "Location:view/exemple.php" );
 		break;
 }
 ?>
